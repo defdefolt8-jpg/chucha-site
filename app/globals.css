@@ -10,6 +10,8 @@
   --gold-light: #f1d49b;
   --rose: #ead8d5;
   --line: rgba(69, 29, 44, 0.22);
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-sans: Arial, Helvetica, sans-serif;
 }
 
 * { box-sizing: border-box; }
