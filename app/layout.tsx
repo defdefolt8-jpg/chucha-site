@@ -3,9 +3,17 @@ import "./globals.css";
 
 const title = "Чуча — груминг и зоо-отель в Краснодаре";
 const description = "Бережный груминг, SPA-уход и комфортный зоо-отель для любимых питомцев в Краснодаре.";
+const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
+const repositoryOwner = process.env.GITHUB_REPOSITORY_OWNER ?? "";
+const metadataUrl =
+  repositoryOwner && repositoryName
+    ? repositoryName.endsWith(".github.io")
+      ? `https://${repositoryName}`
+      : `https://${repositoryOwner}.github.io/${repositoryName}`
+    : "https://chucha-pet.pages.dev";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://chucha-pet.pages.dev"),
+  metadataBase: new URL(metadataUrl),
   title,
   description,
   icons: { icon: "/chucha-logo.jfif" },
