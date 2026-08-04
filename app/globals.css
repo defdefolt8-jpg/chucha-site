@@ -18,6 +18,11 @@
 
 html { scroll-behavior: smooth; }
 
+html, body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 body {
   margin: 0;
   background: var(--cream);
@@ -32,7 +37,7 @@ a { color: inherit; }
 
 button, a { -webkit-tap-highlight-color: transparent; }
 
-main { overflow: hidden; }
+main { overflow: hidden; width: 100%; }
 
 .site-header {
   min-height: 86px;
@@ -192,41 +197,49 @@ footer > a:last-child { text-decoration: none; }
 
 @media (max-width: 760px) {
   .site-header { min-height: 72px; padding: 8px 18px; position: sticky; top: 0; }
+  .brand { min-width: 0; }
   .brand-logo { width: 56px; height: 46px; }
   .brand-caption { font-size: 9px; }
   .desktop-nav { display: none; }
   .mobile-menu { display: block; }
   .hero { min-height: 0; grid-template-columns: 1fr; }
   .hero-copy { padding: 70px 22px 55px; }
-  .hero h1 { font-size: clamp(80px, 26vw, 120px); margin-top: 18px; }
-  .hero-visual { min-height: 500px; }
-  .hero-arch { width: 70%; }
-  .orbit-two { width: 360px; height: 360px; }
-  .care-badge { right: 20px; bottom: 30px; }
+  .hero h1 { font-size: clamp(58px, 18vw, 96px); margin-top: 18px; line-height: .8; }
+  .hero-lead { font-size: 15px; line-height: 1.6; }
+  .hero-actions { align-items: stretch; gap: 14px; }
+  .primary-button, .gold-button { width: 100%; }
+  .text-link { width: fit-content; }
+  .hero-visual { min-height: 400px; padding: 28px 18px 80px; }
+  .hero-arch { width: min(80vw, 320px); }
+  .orbit-one { width: min(64vw, 260px); height: min(64vw, 260px); }
+  .orbit-two { width: min(88vw, 340px); height: min(88vw, 340px); }
+  .care-badge { right: 16px; bottom: 24px; max-width: calc(100% - 32px); text-align: center; }
   .service-line { grid-template-columns: 1fr; gap: 10px; padding: 22px; }
   .intro { min-height: 0; grid-template-columns: 1fr; padding: 80px 22px; }
   .section-index { margin: 0; }
-  .intro h2 { font-size: 60px; }
+  .intro h2 { font-size: clamp(42px, 12vw, 60px); line-height: .92; }
   .services-section { padding: 80px 16px; }
   .section-heading { display: block; margin: 0 6px 32px; }
-  .section-heading h2 { margin-top: 16px; font-size: 62px; }
+  .section-heading h2 { margin-top: 16px; font-size: clamp(42px, 12vw, 62px); line-height: .92; }
   .service-grid { grid-template-columns: 1fr; }
-  .service-card { min-height: 410px; }
+  .service-card { min-height: 0; padding: 24px; }
   .service-card-main { grid-row: auto; }
+  .service-card h3 { font-size: clamp(34px, 10vw, 54px); }
   .hotel-story { margin: 0 10px 80px; border-radius: 22px; }
   .hotel-copy { padding: 65px 24px; }
-  .hotel-story h2 { font-size: 62px; }
+  .hotel-story h2 { font-size: clamp(42px, 12vw, 62px); line-height: .92; }
   .hotel-features { grid-template-columns: 1fr; min-height: 0; }
-  .hotel-features div { min-height: 160px; }
+  .hotel-features div { min-height: 0; gap: 18px; }
   .steps-section { padding: 20px 22px 80px; }
   .steps-list li { grid-template-columns: 56px 1fr; gap: 14px; }
-  .steps-list h3 { font-size: 32px; }
+  .steps-list h3 { font-size: clamp(28px, 8vw, 32px); }
   .faq-section { padding: 80px 22px; grid-template-columns: 1fr; gap: 50px; }
-  .faq-section h2 { font-size: 62px; }
-  .faq-list summary { font-size: 23px; }
+  .faq-section h2 { font-size: clamp(42px, 12vw, 62px); line-height: .92; }
+  .faq-list summary { font-size: clamp(21px, 6vw, 23px); }
+  .faq-list details p { margin-right: 0; }
   .contact-section { padding: 80px 22px 36px; }
-  .contact-top h2 { font-size: 75px; }
-  .contact-phone { font-size: 38px; }
+  .contact-top h2 { font-size: clamp(46px, 14vw, 75px); line-height: .92; }
+  .contact-phone { font-size: clamp(28px, 8vw, 38px); overflow-wrap: anywhere; }
   .contact-bottom { margin-top: 70px; grid-template-columns: 1fr; gap: 28px; }
   .circle-call { justify-self: end; }
   footer { flex-direction: column; align-items: flex-start; padding: 30px 22px; }
@@ -235,5 +248,13 @@ footer > a:last-child { text-decoration: none; }
 @media (max-width: 380px) {
   .brand-caption { display: none; }
   .hero-actions { align-items: flex-start; flex-direction: column; }
-  .contact-phone { font-size: 32px; }
+  .hero-copy,
+  .intro,
+  .steps-section,
+  .faq-section,
+  .contact-section,
+  footer { padding-left: 16px; padding-right: 16px; }
+  .hero-visual { min-height: 340px; }
+  .contact-phone { font-size: 26px; }
+  .circle-call { width: 62px; height: 62px; font-size: 24px; }
 }
