@@ -182,6 +182,20 @@ main { overflow: hidden; width: 100%; }
 .circle-call:hover { transform: rotate(45deg); }
 
 footer { min-height: 120px; padding: 20px clamp(24px, 5vw, 76px); display: flex; align-items: center; justify-content: space-between; gap: 30px; border-top: 1px solid var(--line); font-size: 12px; }
+
+/* Clean, seamless section transitions without decorative divider lines. */
+.site-header,
+.hero,
+.service-line,
+.intro,
+.compact-heading,
+.steps-list li,
+.faq-list,
+.faq-list details,
+footer {
+  border-top: 0;
+  border-bottom: 0;
+}
 footer p { color: #765661; }
 footer > a:last-child { text-decoration: none; }
 
