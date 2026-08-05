@@ -2,6 +2,7 @@ import Image from "next/image";
 
 const phoneDisplay = "+7 (918) 267-56-57";
 const phoneHref = "tel:+79182675657";
+const bookingHref = "https://dikidi.net/1772870?p=0.pi";
 const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
 const basePath = process.env.GITHUB_ACTIONS === "true" && repositoryName && !repositoryName.endsWith(".github.io")
   ? `/${repositoryName}`
@@ -36,7 +37,7 @@ export default function Home() {
           <a href="#grooming">Груминг</a>
           <a href="#hotel">Зоо-отель</a>
           <a href="#care">О нас</a>
-          <a className="nav-cta" href={phoneHref}>Записаться</a>
+          <a className="nav-cta" href={bookingHref} target="_blank" rel="noopener noreferrer">Записаться</a>
         </nav>
         <details className="mobile-menu">
           <summary aria-label="Открыть меню"><span></span><span></span></summary>
@@ -44,6 +45,7 @@ export default function Home() {
             <a href="#grooming">Груминг</a>
             <a href="#hotel">Зоо-отель</a>
             <a href="#care">О нас</a>
+            <a href={bookingHref} target="_blank" rel="noopener noreferrer">Онлайн-запись</a>
             <a href="#contact">Контакты</a>
           </nav>
         </details>
@@ -58,7 +60,7 @@ export default function Home() {
             кого вы любите.
           </p>
           <div className="hero-actions">
-            <a className="primary-button" href={phoneHref}>Записать питомца</a>
+            <a className="primary-button" href={bookingHref} target="_blank" rel="noopener noreferrer">Записать питомца</a>
             <a className="text-link" href="#services">Посмотреть услуги</a>
           </div>
         </div>
