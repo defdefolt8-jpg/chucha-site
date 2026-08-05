@@ -79,12 +79,6 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="service-line" aria-label="Ключевые направления">
-        <span>01 — Груминг и SPA</span>
-        <span>02 — Зоо-отель</span>
-        <span>Краснодар · Благоева, 10/3</span>
-      </div>
-
       <section className="intro" id="care">
         <p className="section-index">Подход Чучи</p>
         <div className="intro-copy">
