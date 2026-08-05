@@ -10,12 +10,11 @@ const basePath = process.env.GITHUB_ACTIONS === "true" && repositoryName && !rep
 const asset = (path: string) => `${basePath}${path}`;
 
 const workPhotos = [
-  { src: "/works/work-2.jpg", alt: "Йорк после груминга в студии Чуча", label: "Груминг собак" },
-  { src: "/works/work-4.jpg", alt: "Кот после экспресс-линьки в студии Чуча", label: "Экспресс-линька" },
-  { src: "/works/work-5.jpg", alt: "Ши-тцу после стрижки в студии Чуча", label: "Комплексный уход" },
-  { src: "/works/work-6.jpg", alt: "Кот после груминга в студии Чуча", label: "Груминг кошек" },
-  { src: "/works/work-3.jpg", alt: "Зал груминга студии Чуча", label: "Наша студия" },
-  { src: "/works/work-1.jpg", alt: "Фасад студии груминга Чуча в Краснодаре", label: "Чуча · Краснодар" },
+  { src: "/works/work-1.jpg", alt: "Померанский шпиц после груминга в студии Чуча" },
+  { src: "/works/work-2.jpg", alt: "Питомец с мастером студии Чуча" },
+  { src: "/works/work-3.jpg", alt: "Бишон после стрижки в студии Чуча" },
+  { src: "/works/work-4.jpg", alt: "Корги после ухода в студии Чуча" },
+  { src: "/works/work-5.jpg", alt: "Шпиц после груминга в студии Чуча" },
 ];
 
 export default function Home() {
@@ -154,7 +153,7 @@ export default function Home() {
             </figure>
           ))}
         </div>
-        <p className="works-source">Фотографии с официальной страницы студии «Чуча» на Яндекс Картах</p>
+        <p className="works-source">Фотографии предоставлены студией «Чуча»</p>
       </section>
 
       <section className="hotel-story" aria-labelledby="hotel-title">
