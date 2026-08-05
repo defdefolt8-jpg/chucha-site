@@ -146,8 +146,8 @@ export default function Home() {
           <p>Каждый питомец — со своим характером. Подбираем уход бережно и показываем результат без лишней обработки.</p>
         </div>
         <div className="works-grid">
-          {workPhotos.map((photo, index) => (
-            <figure className={`work-card work-card-${index + 1}`} key={photo.src}>
+          {workPhotos.map((photo) => (
+            <figure className="work-card" key={photo.src}>
               <Image
                 src={asset(photo.src)}
                 alt={photo.alt}
@@ -155,7 +155,6 @@ export default function Home() {
                 height={1100}
                 sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"
               />
-              <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{photo.label}</figcaption>
             </figure>
           ))}
         </div>
