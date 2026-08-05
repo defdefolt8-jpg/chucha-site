@@ -2,6 +2,20 @@ import Image from "next/image";
 
 const phoneDisplay = "+7 (918) 267-56-57";
 const phoneHref = "tel:+79182675657";
+const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
+const basePath = process.env.GITHUB_ACTIONS === "true" && repositoryName && !repositoryName.endsWith(".github.io")
+  ? `/${repositoryName}`
+  : "";
+const asset = (path: string) => `${basePath}${path}`;
+
+const workPhotos = [
+  { src: "/works/work-2.jpg", alt: "Йорк после груминга в студии Чуча", label: "Груминг собак" },
+  { src: "/works/work-4.jpg", alt: "Кот после экспресс-линьки в студии Чуча", label: "Экспресс-линька" },
+  { src: "/works/work-5.jpg", alt: "Ши-тцу после стрижки в студии Чуча", label: "Комплексный уход" },
+  { src: "/works/work-6.jpg", alt: "Кот после груминга в студии Чуча", label: "Груминг кошек" },
+  { src: "/works/work-3.jpg", alt: "Зал груминга студии Чуча", label: "Наша студия" },
+  { src: "/works/work-1.jpg", alt: "Фасад студии груминга Чуча в Краснодаре", label: "Чуча · Краснодар" },
+];
 
 export default function Home() {
   return (
@@ -10,7 +24,7 @@ export default function Home() {
         <a className="brand" href="#top" aria-label="Чуча — на главную">
           <Image
             className="brand-logo"
-            src="/chucha-logo.jfif"
+            src={asset("/chucha-logo.jfif")}
             alt="Логотип студии Чуча"
             width={72}
             height={60}
@@ -54,7 +68,7 @@ export default function Home() {
             <div className="orbit orbit-two"></div>
             <Image
               className="hero-logo"
-              src="/chucha-logo.jfif"
+              src={asset("/chucha-logo.jfif")}
               alt="Чуча"
               width={300}
               height={250}
@@ -123,6 +137,31 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="works-section" id="works" aria-labelledby="works-title">
+        <div className="works-heading">
+          <div>
+            <p className="eyebrow">Реальные гости студии</p>
+            <h2 id="works-title">Наши работы</h2>
+          </div>
+          <p>Каждый питомец — со своим характером. Подбираем уход бережно и показываем результат без лишней обработки.</p>
+        </div>
+        <div className="works-grid">
+          {workPhotos.map((photo, index) => (
+            <figure className={`work-card work-card-${index + 1}`} key={photo.src}>
+              <Image
+                src={asset(photo.src)}
+                alt={photo.alt}
+                width={900}
+                height={1100}
+                sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"
+              />
+              <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{photo.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <p className="works-source">Фотографии с официальной страницы студии «Чуча» на Яндекс Картах</p>
+      </section>
+
       <section className="hotel-story" aria-labelledby="hotel-title">
         <div className="hotel-copy">
           <p className="eyebrow">Зоо-отель с домашней заботой</p>
@@ -181,7 +220,7 @@ export default function Home() {
 
       <footer>
         <a className="brand footer-brand" href="#top">
-          <Image className="brand-logo" src="/chucha-logo.jfif" alt="Чуча" width={72} height={60} />
+          <Image className="brand-logo" src={asset("/chucha-logo.jfif")} alt="Чуча" width={72} height={60} />
           <span className="brand-caption">груминг · зоо-отель</span>
         </a>
         <p>© {new Date().getFullYear()} Чуча. Краснодар.</p>

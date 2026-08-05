@@ -8,23 +8,23 @@ const repositoryOwner = process.env.GITHUB_REPOSITORY_OWNER ?? "";
 const metadataUrl =
   repositoryOwner && repositoryName
     ? repositoryName.endsWith(".github.io")
-      ? `https://${repositoryName}`
-      : `https://${repositoryOwner}.github.io/${repositoryName}`
-    : "https://chucha-pet.pages.dev";
+      ? `https://${repositoryName}/`
+      : `https://${repositoryOwner}.github.io/${repositoryName}/`
+    : "https://chucha-pet.pages.dev/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(metadataUrl),
   title,
   description,
-  icons: { icon: "/chucha-logo.jfif" },
+  icons: { icon: "chucha-logo.jfif" },
   openGraph: {
     title,
     description,
     type: "website",
     locale: "ru_RU",
-    images: [{ url: "/og.png", width: 1680, height: 945, alt: "Чуча — искусство заботы" }],
+    images: [{ url: "og.png", width: 1680, height: 945, alt: "Чуча — искусство заботы" }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title, description, images: ["og.png"] },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
